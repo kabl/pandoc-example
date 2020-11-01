@@ -1,11 +1,8 @@
 ---
-title:
-- Markdown to Presentation
-author:
-- DigitalizeIT GmbH
-theme:
-- Copenhagen
-section-titles: false
+title: Markdown to Presentation
+author: DigitalizeIT GmbH
+theme: Copenhagen
+section-titles: true
 toc: true
 fontsize: 10pt
 urlcolor: blue
