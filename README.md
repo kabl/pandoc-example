@@ -24,7 +24,7 @@ If there should be missing software search in google for it.
 To simply convert an `md` file run:
 
 ```bash
-pandoc howto.md -t beamer -o presentation.pdf
+pandoc README.md -t beamer -o presentation.pdf
 ```
 
 ## Advanced
@@ -40,7 +40,7 @@ title:
 author:
 - DigitalizeIT GmbH
 theme:
-- PaloAlto
+- Copenhagen
 ---
 ```
 
@@ -55,7 +55,7 @@ List with all [themes](https://deic-web.uab.cat/~iblanes/beamer_gallery/index_by
 Modify the `md` with specific pandoc metadata is not always what you want. We can put all these metadata to a template file. E.g. `template.yaml`.
 
 ```bash
-pandoc howto.md -t beamer -o presentation.pdf \
+pandoc README.md -t beamer -o presentation.pdf \
     --metadata-file=template.yaml
 ```
 
@@ -68,7 +68,7 @@ pandoc --list-highlight-styles
 
 An example by using the `zenbrun` style
 ```bash
-pandoc howto.md -t beamer -o presentation.pdf \
+pandoc README.md -t beamer -o presentation.pdf \
     --metadata-file=template.yaml \
     --highlight-style=zenburn
 ```
@@ -86,14 +86,14 @@ Be aware that every generator has it's own options. For example the `theme` opti
 ## Generate a PDF document
 
 ```bash
-pandoc howto.md -t latex -o presentation.pdf \
+pandoc README.md -t latex -o presentation.pdf \
     --metadata-file=template.yaml \
     --highlight-style=zenburn -V geometry:a4paper
 ```
 
 ## Generate HTML
 ```bash
-pandoc howto.md -t html5 -o presentation.html \
+pandoc README.md -t html5 -o presentation.html \
     --metadata-file=template.yaml \
     --highlight-style=zenburn
 ```
@@ -106,7 +106,7 @@ Unfortunately `docx` and `pptx` have no templates available.
 ### Generate a PowerPoint
 
 ```bash
-pandoc howto.md -t pptx -o presentation.pptx \
+pandoc README.md -t pptx -o presentation.pptx \
     --metadata-file=template.yaml \
     --highlight-style=zenburn
 ```
@@ -114,7 +114,7 @@ pandoc howto.md -t pptx -o presentation.pptx \
 ### Generate a word document
 
 ```bash
-pandoc howto.md -t docx -o presentation.docx \
+pandoc README.md -t docx -o presentation.docx \
     --metadata-file=template.yaml \
     --highlight-style=zenburn
 ```
