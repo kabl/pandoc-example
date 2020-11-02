@@ -1,0 +1,67 @@
+<h2 id="introduction">Introduction</h2>
+<p><strong>Goal</strong> Convert <code>md</code> (Markdown) files to a presentation</p>
+<p>For that we are using <code>pandoc</code></p>
+<p>Pandoc is very powerful and can convert almost any format to another format.</p>
+<p>For all options run <code>pandc --help</code></p>
+<h2 id="setup">Setup</h2>
+<p>On Debian/Ubuntu based distributions install following software</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb1-1" title="1"><span class="fu">sudo</span> apt-get install pandoc</a>
+<a class="sourceLine" id="cb1-2" title="2"><span class="fu">sudo</span> apt-get install texlive-latex-base</a></code></pre></div>
+<p>If there should be missing software search in google for it.</p>
+<h2 id="basic">Basic</h2>
+<p>To simply convert an <code>md</code> file run:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb2-1" title="1"><span class="ex">pandoc</span> README.md -t beamer -o presentation.pdf</a></code></pre></div>
+<h2 id="advanced">Advanced</h2>
+<p>To generate a more beautiful presentation add metadata.</p>
+<p>This can be done in the <code>md</code> file itself with a yaml block at the beginning</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb3-1" title="1"><span class="ex">---</span></a>
+<a class="sourceLine" id="cb3-2" title="2"><span class="ex">title</span>:</a>
+<a class="sourceLine" id="cb3-3" title="3"><span class="ex">-</span> Mardown to Presentation</a>
+<a class="sourceLine" id="cb3-4" title="4"><span class="ex">author</span>:</a>
+<a class="sourceLine" id="cb3-5" title="5"><span class="ex">-</span> DigitalizeIT GmbH</a>
+<a class="sourceLine" id="cb3-6" title="6"><span class="ex">theme</span>:</a>
+<a class="sourceLine" id="cb3-7" title="7"><span class="ex">-</span> Copenhagen</a>
+<a class="sourceLine" id="cb3-8" title="8"><span class="ex">---</span></a></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb4-1" title="1"><span class="ex">pandoc</span> howto.md -t beamer -o presentation.pdf</a></code></pre></div>
+<p>List with all <a href="https://deic-web.uab.cat/~iblanes/beamer_gallery/index_by_theme_and_color.html">themes</a></p>
+<h2 id="using-a-template-file">Using a template file</h2>
+<p>Modify the <code>md</code> with specific pandoc metadata is not always what you want. We can put all these metadata to a template file. E.g. <code>template.yaml</code>.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb5-1" title="1"><span class="ex">pandoc</span> README.md -t beamer -o presentation.pdf \</a>
+<a class="sourceLine" id="cb5-2" title="2">    --metadata-file=template.yaml</a></code></pre></div>
+<h2 id="code-block-highlighting">Code block highlighting</h2>
+<p>There are several code highlighting styles available:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb6-1" title="1"><span class="ex">pandoc</span> --list-highlight-styles</a></code></pre></div>
+<p>An example by using the <code>zenbrun</code> style</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb7-1" title="1"><span class="ex">pandoc</span> README.md -t beamer -o presentation.pdf \</a>
+<a class="sourceLine" id="cb7-2" title="2">    --metadata-file=template.yaml \</a>
+<a class="sourceLine" id="cb7-3" title="3">    --highlight-style=zenburn</a></code></pre></div>
+<h2 id="generate-other-document-types">Generate other document types</h2>
+<p>There are almost 50 output formats available. To list them:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb8-1" title="1"><span class="ex">pandoc</span> --list-output-formats</a></code></pre></div>
+<p>Be aware that every generator has it’s own options. For example the <code>theme</code> option in the <code>template.yaml</code> is only available in the <code>beamer</code> generator.</p>
+<h2 id="generate-a-pdf-document">Generate a PDF document</h2>
+<div class="sourceCode" id="cb9"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb9-1" title="1"><span class="ex">pandoc</span> README.md -t latex -o presentation.pdf \</a>
+<a class="sourceLine" id="cb9-2" title="2">    --metadata-file=template.yaml \</a>
+<a class="sourceLine" id="cb9-3" title="3">    --highlight-style=zenburn -V geometry:a4paper</a></code></pre></div>
+<h2 id="generate-html">Generate HTML</h2>
+<div class="sourceCode" id="cb10"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb10-1" title="1"><span class="ex">pandoc</span> README.md -t html5 -o presentation.html \</a>
+<a class="sourceLine" id="cb10-2" title="2">    --metadata-file=template.yaml \</a>
+<a class="sourceLine" id="cb10-3" title="3">    --highlight-style=zenburn</a></code></pre></div>
+<p>If you analyze the generated HTML code all HTML tags have specific <code>class</code> attributes. So it’s straight forward to generate a custom <code>css</code>.</p>
+<h2 id="generate-microsoft-office-documents">Generate Microsoft Office documents</h2>
+<p>Unfortunately <code>docx</code> and <code>pptx</code> have no templates available.</p>
+<h3 id="generate-a-powerpoint">Generate a PowerPoint</h3>
+<div class="sourceCode" id="cb11"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb11-1" title="1"><span class="ex">pandoc</span> README.md -t pptx -o presentation.pptx \</a>
+<a class="sourceLine" id="cb11-2" title="2">    --metadata-file=template.yaml \</a>
+<a class="sourceLine" id="cb11-3" title="3">    --highlight-style=zenburn</a></code></pre></div>
+<h3 id="generate-a-word-document">Generate a word document</h3>
+<div class="sourceCode" id="cb12"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb12-1" title="1"><span class="ex">pandoc</span> README.md -t docx -o presentation.docx \</a>
+<a class="sourceLine" id="cb12-2" title="2">    --metadata-file=template.yaml \</a>
+<a class="sourceLine" id="cb12-3" title="3">    --highlight-style=zenburn</a></code></pre></div>
+<h2 id="conclusion">Conclusion</h2>
+<h3 id="cons">Cons</h3>
+<p>Pandoc is in my opinion not a replacement for professional PowerPoint presentation or word documents.</p>
+<h3 id="pro">Pro</h3>
+<p>Pandoc is a powerful tool to generate documents based out of Markdown files. Especial to document a software project. It can be easily integrated into a CI/CD pipeline and the documentation will be released at the same time as the software.</p>
+<h3 id="hints">Hints</h3>
+<p>If you want to transform the Markdown be aware of it when writing. Especial the code snippets will not have a word wrap in the most cases. When generating a presentation (e.g. beamer). Be aware of the size of each slide…</p>
