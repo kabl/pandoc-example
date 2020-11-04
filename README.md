@@ -1,10 +1,11 @@
 ## Introduction
 
-**Goal** Convert `md` (Markdown) files to a presentation
+**Goal** Convert `md` (Markdown) files to a presentation.
 
-For that we are using `pandoc`
+By using `pandoc`.
 
-Pandoc is very powerful and can convert almost any format to another format. 
+Pandoc is a very powerful tool and can convert almost any text 
+format to another text format.
 
 For all options run `pandc --help`
 
