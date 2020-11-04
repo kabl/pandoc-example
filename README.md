@@ -130,3 +130,16 @@ Pandoc is a powerful tool to generate documents based out of Markdown files. Esp
 
 ### Hints
 If you want to transform the Markdown be aware of it when writing. Especial the code snippets will not have a word wrap in the most cases. When generating a presentation (e.g. beamer). Be aware of the size of each slide...
+
+
+## Results Document
+
+Preview of the generated document
+
+![generated document](./img/generated-document.jpg)
+
+## Results Presentation
+
+Preview of the generated presentation
+
+![generated presentation](./img/generated-presentation.jpg)
