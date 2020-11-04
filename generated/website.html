@@ -1,8 +1,8 @@
 <h2 id="introduction">Introduction</h2>
 <p><strong>Goal</strong> Convert <code>md</code> (Markdown) files to a presentation.</p>
 <p>By using <code>pandoc</code>.</p>
-<p>Pandoc is a very powerful tool and can convert almost any text format to another text format.</p>
-<p>For all options run <code>pandc --help</code></p>
+<p>Pandoc is a very powerful tool and can convert almost any document format to another document format.</p>
+<p>For all options run <code>pandc --help</code> or checkout <a href="https://pandoc.org/MANUAL.html">Pandoc User’s Guide</a></p>
 <h2 id="setup">Setup</h2>
 <p>On Debian/Ubuntu based distributions install following software</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb1-1" title="1"><span class="fu">sudo</span> apt-get install pandoc</a>
@@ -22,7 +22,7 @@
 <a class="sourceLine" id="cb3-6" title="6"><span class="ex">theme</span>:</a>
 <a class="sourceLine" id="cb3-7" title="7"><span class="ex">-</span> Copenhagen</a>
 <a class="sourceLine" id="cb3-8" title="8"><span class="ex">---</span></a></code></pre></div>
-<div class="sourceCode" id="cb4"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb4-1" title="1"><span class="ex">pandoc</span> howto.md -t beamer -o presentation.pdf</a></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb4-1" title="1"><span class="ex">pandoc</span> README.md -t beamer -o presentation.pdf</a></code></pre></div>
 <p>List with all <a href="https://deic-web.uab.cat/~iblanes/beamer_gallery/index_by_theme_and_color.html">themes</a></p>
 <h2 id="using-a-template-file">Using a template file</h2>
 <p>Modify the <code>md</code> with specific pandoc metadata is not always what you want. We can put all these metadata to a template file. E.g. <code>template.yaml</code>.</p>

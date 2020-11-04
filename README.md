@@ -4,8 +4,8 @@
 
 By using `pandoc`.
 
-Pandoc is a very powerful tool and can convert almost any text 
-format to another text format.
+Pandoc is a very powerful tool and can convert almost any document format to another document
+format.
 
 For all options run `pandc --help` or checkout [Pandoc User's Guide](https://pandoc.org/MANUAL.html)
 
@@ -46,7 +46,7 @@ theme:
 ```
 
 ```bash
-pandoc howto.md -t beamer -o presentation.pdf
+pandoc README.md -t beamer -o presentation.pdf
 ```
 
 List with all [themes](https://deic-web.uab.cat/~iblanes/beamer_gallery/index_by_theme_and_color.html)
