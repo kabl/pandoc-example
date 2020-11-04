@@ -7,7 +7,7 @@ By using `pandoc`.
 Pandoc is a very powerful tool and can convert almost any text 
 format to another text format.
 
-For all options run `pandc --help`
+For all options run `pandc --help` or checkout [Pandoc User's Guide](https://pandoc.org/MANUAL.html)
 
 ## Setup
 
